@@ -1,0 +1,32 @@
+# values.yaml
+
+# Nginx Configuration
+nginx:
+  replicaCount: 1
+  image:
+    repository: kohlisohil/custom-nginx-image	
+    tag: latest
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 80
+
+# PHP Configuration
+php:
+  replicaCount: 1
+  image:
+    repository: kohlisohil/custom-php-image
+    tag: latest
+    pullPolicy: IfNotPresent
+
+# MySQL Configuration
+mysql:
+  replicaCount: 1
+  image:
+    repository: mysql:5.7
+    tag: latest
+    pullPolicy: IfNotPresent
+  rootPassword: root
+  database: testdb
+  service:
+    port: 3306
